@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
@@ -12,29 +12,38 @@ import Footer from "./sections/Footer";
 import ScrollUp from "./sections/ScrollUp";
 import Lenis from "lenis";
 import Cursor from "./components/Cursor";
+import LoadingOverlay from "./components/LoadingOverlay ";
+import MainHero from "./sections/MainHero";
+import Header from "./sections/Header";
+import Works from "./sections/Works";
+import ThreeModel from "./components/ThreeModel";
 
 const App = () => {
-  // useEffect(() => {
-  //   const lenis = new Lenis();
+  const [isHovering, setIsHovering] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
-  //   requestAnimationFrame(raf);
-  // }, []);
   return (
-    <main className="bg-black">
-      <Navbar />
-      <Hero />
-      <Projects />
-      <Tape />
+    <main className="">
+      {/* {isLoading && (
+        <LoadingOverlay onLoadingComplete={handleLoadingComplete} />
+      )} */}
+      <Cursor isHovering={isHovering} setIsHovering={setIsHovering} />
+      <Header />
+      {/* <Navbar setIsHovering={setIsHovering} /> */}
+      {/* <Hero /> */}
+      <MainHero />
+      <Works />
+      {/* <Projects /> */}
+      {/* <Tape /> */}
       <About />
-      <Contact />
+      <Contact setIsHovering={setIsHovering} isHovering={isHovering} />
       <Footer />
-      <Cursor />
-      {/* <ScrollUp /> */}
+
+      <ScrollUp />
     </main>
   );
 };

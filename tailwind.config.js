@@ -2,6 +2,14 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    container: {
+      centered: true,
+      padding: {
+        DEFAULT: "1rem",
+        md: "2rem",
+        lg: "4rem",
+      },
+    },
     extend: {
       fontFamily: {
         generalsans: ["clash", "sans-serif"],
@@ -30,12 +38,22 @@ export default {
             transform: "translateX(0%)",
           },
         },
+        "slide-down": {
+          "0%": { transform: "translateY(-100%)", opacity: 0 },
+          "100%": { transform: "translateY(0)", opacity: 1 },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
       },
       animation: {
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
         "move-right": "move-right 1s linear infinite",
         "spin-slow": "spin 10s linear infinite",
+        "slide-down": "slide-down 0.3s ease-out",
+        "slide-up": "slide-up 0.5s ease-in",
       },
       colors: {
         black: {

@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -24,21 +25,30 @@ const ScrollUp = () => {
       behavior: "smooth",
     });
   };
+
   return (
-    <>
+    <AnimatePresence>
       {isVisible && (
-        <div
-          className={`fixed bottom-10 right-10 w-28 h-28 cursor-pointer group transition-all duration-700 ease-in-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="fixed bottom-10 right-10 w-28 h-28 cursor-pointer group"
           onClick={scrollToTop}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-emerald-300 rounded-full shadow-lg transition-colors group-hover:bg-emerald-600 flex items-center justify-center">
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-emerald-300 rounded-full shadow-lg flex items-center justify-center"
+            whileHover={{ scale: 1.1, backgroundColor: "#059669" }}
+            transition={{ duration: 0.3 }}
+          >
             <ChevronUp className="text-white" size={24} />
-          </div>
-          <svg
-            className="absolute inset-0 w-full h-full animate-spin-slow"
+          </motion.div>
+          <motion.svg
+            className="absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           >
             <defs>
               <path
@@ -51,10 +61,10 @@ const ScrollUp = () => {
                 Scroll Up • Scroll Up • Scroll Up • Scroll Up • Scroll Up
               </textPath>
             </text>
-          </svg>
-        </div>
+          </motion.svg>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

@@ -4,21 +4,43 @@ import { navLinks } from "../constants";
 import { useGSAP } from "@gsap/react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
-const NavItems = () => {
+const NavItems = ({ setIsHovering }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <ul className="nav-ul">
-      {navLinks.map(({ id, href, name }) => (
+      {navLinks.map(({ id, href, name }, index) => (
         <li key={id} className="nav-li">
-          <a href="" className="nav-li_a">
+          <motion.a
+            href={href}
+            className="nav-li_a inline-block"
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setHoveredIndex(index);
+            }}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setHoveredIndex(null);
+            }}
+            animate={{
+              y: hoveredIndex === index ? [-2, 2, -2] : 0,
+              rotateX: hoveredIndex === index ? [-5, 5, -5] : 0,
+            }}
+            transition={{
+              duration: 0.3,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
             {name}
-          </a>
+          </motion.a>
         </li>
       ))}
     </ul>
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ setIsHovering }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const { scrollY } = useScroll();
@@ -49,13 +71,15 @@ const Navbar = () => {
         },
       }}
       transition={{ duration: 0.2 }}
-      className="fixed top-0 right-0 left-0 z-50 bg-transparent"
+      className="fixed top-0 right-0 left-0 z-50 bg-black mix-blend-difference h-16"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a
             href=""
-            className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
+            className="text-neutral-400 font-semibold text-3xl hover:text-white transition-colors"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
           >
             Adam
           </a>
@@ -73,14 +97,14 @@ const Navbar = () => {
           </button>
 
           <nav className="sm:flex hidden">
-            <NavItems />
+            <NavItems setIsHovering={setIsHovering} />
           </nav>
         </div>
       </div>
 
       <div className={`nav-sidebar ${isOpen ? "h-screen" : "max-h-0"}`}>
         <nav className=" p-5">
-          <NavItems />
+          <NavItems setIsHovering={setIsHovering} />
         </nav>
       </div>
     </motion.header>
