@@ -25,8 +25,8 @@ const projects = [
 
 const Works = () => {
   return (
-    <section className="py-24">
-      <div className="container mx-auto">
+    <section className="py-24" data-section="work">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-7xl lg:text-8xl">Selected Works</h2>
         <div className="mt-10 md:mt-16 lg:mt-20">
           {projects.map(({ name, image }) => (

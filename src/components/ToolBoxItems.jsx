@@ -16,17 +16,14 @@ const ToolBoxItems = ({ toolBoxItems, className, wrapperClassName }) => {
           wrapperClassName
         )}
       >
-        {[...new Array(2)].fill(0).map((_, i) => (
+        {[...new Array(4)].fill(0).map((_, i) => (
           <>
             {toolBoxItems.map((item) => (
               <div
                 key={item.title}
-                className="inline-flex items-center gap-4 py-2 px-3 outline outline-2 outline-white/10 rounded-lg"
+                className="inline-flex items-center gap-4 py-2 px-3 bg-[#F1F0EA] rounded-lg"
               >
                 <TechIcon component={item.iconType} />
-                <span className="font-semibold font-satoshi text-white">
-                  {item.title}
-                </span>
               </div>
             ))}
           </>

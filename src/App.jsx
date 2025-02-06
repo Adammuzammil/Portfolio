@@ -17,30 +17,40 @@ import MainHero from "./sections/MainHero";
 import Header from "./sections/Header";
 import Works from "./sections/Works";
 import ThreeModel from "./components/ThreeModel";
+import { HeroSection } from "./sections/HeroSection";
+import Intro from "./sections/Intro";
+import CustomCursor from "./components/CustomCursor";
 
 const App = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [cursorText, setCursorText] = useState("");
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
   return (
-    <main className="">
-      {/* {isLoading && (
+    <main className="relative">
+      {isLoading && (
         <LoadingOverlay onLoadingComplete={handleLoadingComplete} />
-      )} */}
-      <Cursor isHovering={isHovering} setIsHovering={setIsHovering} />
+      )}
+      {/* <Cursor isHovering={isHovering} setIsHovering={setIsHovering} /> */}
+      <CustomCursor
+        isHovering={isHovering}
+        setIsHovering={setIsHovering}
+        cursorText={cursorText}
+      />
       <Header />
-      {/* <Navbar setIsHovering={setIsHovering} /> */}
-      {/* <Hero /> */}
-      <MainHero />
+      <div className="h-[200vh] relative">
+        <HeroSection />
+      </div>
+      <section className="relative min-h-screen  -mt-[100vh]">
+        <Intro />
+        <About />
+      </section>
+
       <Works />
-      {/* <Projects /> */}
-      {/* <Tape /> */}
-      <About />
-      <Contact setIsHovering={setIsHovering} isHovering={isHovering} />
       <Footer />
 
       <ScrollUp />

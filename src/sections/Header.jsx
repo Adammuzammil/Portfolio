@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import SocialLinks from "../components/SocialLinks";
 import { AnimatePresence, motion } from "framer-motion";
+import SocialLinks, { Location } from "../components/SocialLinks";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -11,68 +10,46 @@ const Header = () => {
   };
 
   const menuVariants = {
-    initial: {
-      y: "-100%", // Start off-screen at the top
-      opacity: 0,
-    },
+    initial: { y: "-100%", opacity: 0 },
     animate: {
-      y: 0, // Slide down to its original position
+      y: 0,
       opacity: 1,
-      transition: {
-        type: "tween", // Smoother animation
-        duration: 0.6,
-      },
+      transition: { type: "tween", duration: 0.6 },
     },
     exit: {
-      y: "-100%", // Exit animation moves up off-screen
+      y: "-100%",
       opacity: 0,
-      transition: {
-        type: "tween",
-        duration: 0.7,
-      },
+      transition: { type: "tween", duration: 0.7 },
     },
   };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
+    }),
+  };
+
   return (
-    <header className=" text-white px-4 fixed top-0 left-0 right-0 z-20 bg-black/50 backdrop-blur-sm">
+    <header className="text-white px-4 fixed top-0 left-0 right-0 z-20 bg-[#232126]/10 backdrop-blur-sm">
       <div className="container mx-auto flex justify-between items-center py-4">
-        <div className="text-2xl font-bold">
+        <div className="text-xl md:text-2xl font-bold">
           <a href="/">ADAM</a>
         </div>
-        <div onClick={toggleMenu} className="z-50">
-          <div className="bg-red-200 p-4 rounded-full">
-            {open ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-7 w-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-7 w-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 9h16.5m-16.5 6.75h16.5"
-                />
-              </svg>
-            )}
+
+        <button
+          onClick={toggleMenu}
+          className="z-50 focus:outline-none"
+          aria-label="Toggle navigation menu"
+        >
+          <div className="font-medium p-4 py-5">
+            {open ? <span>CLOSE</span> : <span>MENU</span>}
           </div>
-        </div>
+        </button>
+
+        {/* Mobile Menu */}
         <AnimatePresence>
           {open && (
             <motion.div
@@ -81,34 +58,45 @@ const Header = () => {
               animate="animate"
               exit="exit"
               variants={menuVariants}
-              className="fixed top-0 right-0 bg-yellow-500 text-white p-4 rounded-bl-3xl rounded-br-3xl shadow-lg w-[30%] z-20"
+              className="fixed top-0 left-0 right-0 bg-black text-white p-6 w-full h-screen flex flex-col justify-between items-center"
               style={{ zIndex: 40 }}
             >
-              <nav className="pt-20">
-                <ul className="flex items-center gap-6">
-                  <li>
-                    <a href="/frontend-developer" className="text-xl font-bold">
-                      HOME
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/freelancer" className="text-xl font-bold">
-                      ABOUT
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/about" className="text-xl font-bold">
-                      WORK
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/contact" className="text-xl font-bold">
-                      CONTACT
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-              <SocialLinks />
+              {/* Centered Navigation with Staggered Items */}
+              <motion.nav
+                className="flex flex-col items-center gap-8 text-2xl font-bold flex-1 justify-center"
+                initial="hidden"
+                animate="visible"
+              >
+                {["ABOUT", "WORK", "CONTACT"].map((item, index) => (
+                  <motion.a
+                    key={item}
+                    href={`/${item.toLowerCase()}`}
+                    onClick={toggleMenu}
+                    className="hover:text-gray-400"
+                    variants={itemVariants}
+                    custom={index}
+                  >
+                    {item}
+                  </motion.a>
+                ))}
+              </motion.nav>
+
+              {/* Social Links & Location Info - Positioned at Bottom */}
+              {/* <div className="flex flex-col gap-4 text-sm text-white/60 pb-6 text-center">
+                <SocialLinks className="flex flex-wrap gap-4 justify-center" />
+              </div> */}
+              <div className="absolute bottom-8 left-0 right-0 flex justify-between items-center text-xs px-8 text-gray-400">
+                {/* Left */}
+                <div>
+                  <Location />
+                </div>
+                {/* Right */}
+                <div className="text-right">
+                  <div className="flex gap-4">
+                    <SocialLinks className="flex flex-wrap gap-4 justify-center" />
+                  </div>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

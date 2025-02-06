@@ -4,7 +4,7 @@ const SectionHeader = ({ title, eyebrow, desc }) => {
   return (
     <>
       <div className="flex justify-center">
-        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-center bg-clip-text text-transparent">
+        <p className="text-3xl uppercase font-bold tracking-wider text-primary">
           {eyebrow}
         </p>
       </div>

@@ -46,6 +46,21 @@ export default {
           "0%": { transform: "translateY(0)" },
           "100%": { transform: "translateY(-100%)" },
         },
+        twinkle: {
+          "0%": { opacity: 0.3 },
+          " 50%": { opacity: 1 },
+          "100%": { opacity: 0.3 },
+        },
+        shootingStar: {
+          "0%": {
+            transform: "translateX(-100%) translateY(-100%)",
+            opacity: "0",
+          },
+          "20%, 100%": {
+            transform: "translateX(100vw) translateY(100vh)",
+            opacity: "0.5",
+          },
+        },
       },
       animation: {
         "ping-large": "ping-large 1s ease-in-out infinite",
@@ -54,8 +69,19 @@ export default {
         "spin-slow": "spin 10s linear infinite",
         "slide-down": "slide-down 0.3s ease-out",
         "slide-up": "slide-up 0.5s ease-in",
+        twinkle: "twinkle infinite linear;",
+        "shooting-star": "shootingStar 3s infinite linear;",
+      },
+      dropShadow: {
+        "shooting-star": "0 0 4px rgba(255,255,255,0.5)",
       },
       colors: {
+        primary: {
+          DEFAULT: "#C4C5C9",
+        },
+        secondary: {
+          DEFAULT: "#F1F0EA",
+        },
         black: {
           DEFAULT: "#000",
           100: "#010103",

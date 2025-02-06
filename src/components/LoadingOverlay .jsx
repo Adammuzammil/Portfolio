@@ -13,9 +13,9 @@ const LoadingOverlay = ({ onLoadingComplete }) => {
           setIsComplete(true);
           return 100;
         }
-        return prev + 1;
+        return prev + Math.floor(Math.random() * (7 - 3 + 1) + 3);
       });
-    }, 100);
+    }, 75);
 
     return () => {
       clearInterval(interval);
@@ -26,7 +26,7 @@ const LoadingOverlay = ({ onLoadingComplete }) => {
     initial: { y: 0 },
     complete: {
       y: "-100%",
-      transition: { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] },
+      transition: { duration: 0.8, ease: [0.85, 0.19, 0.92, 0.82] },
     },
   };
 
@@ -40,7 +40,7 @@ const LoadingOverlay = ({ onLoadingComplete }) => {
           setTimeout(onLoadingComplete, 100);
         }
       }}
-      className="fixed inset-0 flex items-center justify-center bg-black z-[100]"
+      className="fixed inset-0 flex items-center justify-center bg-[#232126] z-[100]"
     >
       <motion.div
         initial={{ opacity: 1 }}
