@@ -21,6 +21,132 @@ export const navLinks = [
   },
 ];
 
+export const projects = [
+  {
+    name: "Kaizen",
+    bgColor: "gray-700",
+    textColor: "text-gray-100",
+    images: [
+      "/assets/images/kz1.png",
+      "/assets/images/kz2.png",
+      "/assets/images/kz3.png",
+      "/assets/images/kz4.png",
+      "/assets/images/kz5.png",
+      "/assets/images/kz6.png",
+      "/assets/images/kz7.png",
+    ],
+    description:
+      "Kaizen is a modern crypto dashboard providing real-time insights into cryptocurrency market dynamics. ",
+    industry: "Blockchain",
+    published: "2024",
+    techstack: ["React", "Tailwind CSS", "ShadCN UI", "Firebase"],
+    dummyurl: "KAIZEN.COM",
+    url: "https://kaizen-three-iota.vercel.app",
+    github: "https://github.com/Adammuzammil/crypto-dashboard",
+    inspiration:
+      "Born from my passion for cryptocurrency, this project aimed to create a simple, user-friendly dashboard, something people could use regularly. It utilizes the CoinGecko API for real-time market data and is deployed on Vercel.",
+  },
+  {
+    name: "Ripple",
+    bgColor: "orange-500",
+    images: [
+      "/assets/images/ripple1.png",
+      "/assets/images/ripple2.png",
+      "/assets/images/ripple3.png",
+    ],
+    description:
+      "Ripple is a feedback platform that helps businesses collect user insights through customizable widgets.",
+    industry: "Blockchain",
+    published: "2024",
+    techstack: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
+    github: "https://github.com/Adammuzammil/ripple",
+    inspiration:
+      "This project was created to streamline the clunky feedback process. My goal was to build a tool that helps businesses effortlessly capture user feedback. It's an ongoing project, continually evolving to meet user needs.",
+  },
+  {
+    name: "INK",
+    bgColor: "blue-500",
+    images: [
+      "/assets/images/ink1.png",
+      "/assets/images/ink2.png",
+      "/assets/images/ink3.png",
+      "/assets/images/ink4.png",
+      "/assets/images/ink5.png",
+      "/assets/images/ink6.png",
+      "/assets/images/ink7.png",
+    ],
+    description:
+      "INK is a dynamic blog platform that enables users to discover, engage with, and interact through articles seamlessly.",
+    industry: "Blockchain",
+    published: "2024",
+    techstack: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
+    url: "https://ink-sandy.vercel.app/",
+    dummyurl: "INK.COM",
+    github: "https://github.com/Adammuzammil/Ink",
+    inspiration:
+      "The project stemmed from my passion for UI design. My goal was simple—craft a stunning interface that captivates users while showcasing my frontend skills. It is deployed on Vercel",
+  },
+  {
+    name: "CineVista",
+    bgColor: "purple-500",
+    images: [
+      "/assets/images/cv1.png",
+      "/assets/images/cv2.png",
+      "/assets/images/cv3.png",
+      "/assets/images/cv4.png",
+    ],
+    description:
+      "CineVista is a one-stop hub for movies, TV series, and entertainment insights.",
+    industry: "Entertainment",
+    published: "2024",
+    techstack: ["React", "Tailwind CSS"],
+    url: "https://cine-vista-two.vercel.app/",
+    dummyurl: "CINEVISTA.COM",
+    github: "https://github.com/Adammuzammil/CineVista",
+    inspiration:
+      "This project began as a way to hone my frontend skills and explore UI development. It helped me gain valuable insights into design, interactivity, and performance optimization. The project is deployed on Vercel.",
+  },
+  {
+    name: "Horizon",
+    bgColor: "purple-500",
+    images: [
+      "/assets/images/hrz1.png",
+      "/assets/images/hrz2.png",
+      "/assets/images/hrz3.png",
+    ],
+    description:
+      "Horizon is a web app that provides detailed weather insights for any location.",
+    industry: "Entertainment",
+    published: "2024",
+    techstack: ["React", "Tailwind CSS", "Typescript", "ShadCN UI"],
+    url: "https://tenki-inky.vercel.app",
+    dummyurl: "HORIZON.COM",
+    github: "https://github.com/Adammuzammil/weather_app",
+    inspiration:
+      "Exploring Next JS for the first time, I built a weather app with real-time forecasts via OpenWeatherMap and interactive maps using MapBox. This project enhanced my frontend skills in handling dynamic data. Deployed on Vercel.",
+  },
+  {
+    name: "Shoppy",
+    bgColor: "purple-500",
+    images: [
+      "/assets/images/shpy1.png",
+      "/assets/images/shpy2.png",
+      "/assets/images/shpy3.png",
+      "/assets/images/shpy4.png",
+    ],
+    description:
+      "Shoppy is an online store that lets users save and manage their wishlist items with detailed information.",
+    industry: "Fashion",
+    published: "2024",
+    techstack: ["React", "Tailwind CSS", "Express", "PostgreSQL", "NodeJS"],
+    url: "https://shelf-xrly.onrender.com",
+    dummyurl: "SHOPPY.COM",
+    github: "https://github.com/Adammuzammil/product-store",
+    inspiration:
+      "I built Shoppy as a learning project when I decided to explore PostgreSQL. The goal was to create a simple platform for users to store and manage their wishlist items .Deployed it on Render.",
+  },
+];
+
 export const clientReviews = [
   {
     id: 1,
