@@ -41,15 +41,15 @@ const Footer = () => {
     >
       <div className="max-w-6xl mx-auto flex flex-col gap-16">
         {/* Header Section */}
-        <section className="flex flex-col lxl:flex-row items-center justify-between gap-4 md:gap-12">
-          <figure className="w-full  max-w-[350px] md:max-w-[150px] relative">
+        <section className="flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-12">
+          <figure className="w-full max-w-[120px] sm:max-w-[150px] md:max-w-[200px] relative">
             <img
               src="/assets/images/interested.png"
               alt="Illustration of contact concept"
               className="w-full object-cover drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)] transition-transform duration-500 hover:scale-105"
               loading="lazy"
-              width={350}
-              height={350}
+              width={300}
+              height={300}
             />
           </figure>
 
