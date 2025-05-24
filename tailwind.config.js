@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    "bg-green-50/30",
+    "bg-orange-50/30",
+    "bg-blue-50/30",
+    "bg-purple-50/30",
+    "bg-gray-50",
+    "bg-gray-200",
+  ],
   theme: {
     container: {
       centered: true,
@@ -11,6 +19,13 @@ export default {
       },
     },
     extend: {
+      backgroundColor: {
+        "green-500/30": "rgba(240, 253, 244, 0.3)",
+        "orange-500/30": "rgba(255, 247, 237, 0.3)",
+        "blue-500/30": "rgba(239, 246, 255, 0.3)",
+        "purple-500/30": "rgba(243, 232, 255, 0.3)",
+        hero: "#F1F0EA",
+      },
       fontFamily: {
         generalsans: ["clash", "sans-serif"],
         satoshi: ["satoshi", "sans-serif"],

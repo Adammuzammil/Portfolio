@@ -2,6 +2,25 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SocialLinks, { Location } from "../components/SocialLinks";
 
+const navLinks = [
+  {
+    label: "ABOUT",
+    href: "#about",
+  },
+  {
+    label: "EXPERIENCE",
+    href: "#experience",
+  },
+  {
+    label: "WORK",
+    href: "#works",
+  },
+  {
+    label: "CONTACT",
+    href: "#contact",
+  },
+];
+
 const Header = () => {
   const [open, setOpen] = useState(false);
 
@@ -32,9 +51,26 @@ const Header = () => {
     }),
   };
 
+  const handleNavClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+
+    const url = new URL(e.currentTarget.href);
+    const hash = url.hash;
+
+    const target = document.querySelector(hash);
+
+    if (!target) return;
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
   return (
-    <header className="text-white px-4 fixed top-0 left-0 right-0 z-20 bg-[#232126]/10 backdrop-blur-sm">
-      <div className="container mx-auto flex justify-between items-center py-4">
+    <header className="text-white px-4 fixed top-0 left-0 right-0 z-20 bg-[#232126]/10 backdrop-blur-sm ">
+      <div className="container mx-auto flex justify-between items-center py-4 overflow-hidden">
         <div className="text-xl md:text-2xl font-bold">
           <a href="/">ADAM</a>
         </div>
@@ -67,16 +103,16 @@ const Header = () => {
                 initial="hidden"
                 animate="visible"
               >
-                {["ABOUT", "WORK", "CONTACT"].map((item, index) => (
+                {navLinks.map((item, index) => (
                   <motion.a
-                    key={item}
-                    href={`/${item.toLowerCase()}`}
-                    onClick={toggleMenu}
+                    key={item.href}
+                    href={`${item.href}`}
+                    onClick={handleNavClick}
                     className="hover:text-gray-400"
                     variants={itemVariants}
                     custom={index}
                   >
-                    {item}
+                    {item.label}
                   </motion.a>
                 ))}
               </motion.nav>
@@ -85,13 +121,13 @@ const Header = () => {
               {/* <div className="flex flex-col gap-4 text-sm text-white/60 pb-6 text-center">
                 <SocialLinks className="flex flex-wrap gap-4 justify-center" />
               </div> */}
-              <div className="absolute bottom-8 left-0 right-0 flex justify-between items-center text-xs px-8 text-gray-400">
+              <div className="absolute bottom-8 left-0 right-0 px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-gray-400 gap-4">
                 {/* Left */}
-                <div>
+                <div className="text-center sm:text-left">
                   <Location />
                 </div>
                 {/* Right */}
-                <div className="text-right">
+                <div className="text-center sm:text-right">
                   <div className="flex gap-4">
                     <SocialLinks className="flex flex-wrap gap-4 justify-center" />
                   </div>

@@ -40,13 +40,13 @@ const LoadingOverlay = ({ onLoadingComplete }) => {
           setTimeout(onLoadingComplete, 100);
         }
       }}
-      className="fixed inset-0 flex items-center justify-center bg-[#232126] z-[100]"
+      className="fixed inset-0 flex items-center justify-center bg-[#232126] z-[100] overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: isComplete ? 0 : 1 }}
         transition={{ duration: 0.5 }}
-        className="text-white text-9xl font-bold"
+        className="text-white font-bold text-xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl"
       >
         {progress}%
       </motion.div>
@@ -54,7 +54,7 @@ const LoadingOverlay = ({ onLoadingComplete }) => {
         initial={{ opacity: 1 }}
         animate={{ opacity: isComplete ? 0 : 1 }}
         transition={{ duration: 0.5 }}
-        className="absolute bottom-8 left-8 text-white text-5xl font-medium"
+        className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 text-white font-medium text-base sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl"
       >
         LOADING
       </motion.div>

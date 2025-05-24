@@ -2,7 +2,7 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <section className="py-24   bg-[#F1F0EA]">
+    <section id="about" className="py-24  bg-[#F1F0EA]">
       <div className="container mx-auto">
         <h2 className=" font-semibold text-black text-3xl md:text-5xl text-center my-6">
           A Glimpse into my world

@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import React from "react";
+import OuterLink from "../components/OuterLink";
 
 const footerLinks = [
   {
@@ -34,11 +35,14 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <footer className="bg-lime-400 text-black px-6 py-20 md:px-16 lg:px-32">
+    <footer
+      id="contact"
+      className="bg-lime-400 text-black px-6 py-20 md:px-16 lg:px-32"
+    >
       <div className="max-w-6xl mx-auto flex flex-col gap-16">
         {/* Header Section */}
-        <section className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12">
-          <figure className="w-full max-w-[350px] md:max-w-[150px] relative">
+        <section className="flex flex-col lxl:flex-row items-center justify-between gap-4 md:gap-12">
+          <figure className="w-full  max-w-[350px] md:max-w-[150px] relative">
             <img
               src="/assets/images/interested.png"
               alt="Illustration of contact concept"
@@ -49,7 +53,7 @@ const Footer = () => {
             />
           </figure>
 
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-center md:text-left">
+          <h2 className="text-4xl md:text-5xl font-medium leading-tight text-center md:text-left">
             Great things can happen <br />
             with a simple <span className="whitespace-nowrap">"hello!"</span>
           </h2>
@@ -67,12 +71,18 @@ const Footer = () => {
         </section>
 
         {/* Footer Links */}
-        <nav className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-black pt-8">
-          <div>
-            <h3 className="text-xl font-semibold">Adam</h3>
+        <nav className="grid grid-cols-1 xl:grid-cols-3 gap-8 border-t border-black pt-8">
+          <div className="flex flex-col">
+            {/* <h3 className="text-xl font-semibold">Adam</h3> */}
+            <OuterLink
+              url={"/"}
+              name={"Adam"}
+              external={false}
+              className="text-xl w-fit font-semibold"
+            />
             <a
               href="mailto:adammuzammil@mail.com"
-              className="mt-3 font-medium text-lg hover:underline focus:underline"
+              className="mt-3 font-medium text-lg"
               aria-label="Send email to Adam"
             >
               adammuzammil1998@gmail.com
@@ -81,30 +91,32 @@ const Footer = () => {
 
           <div className="space-y-3 text-lg">
             {navigationLinks.map((link, index) => (
-              <a
+              <OuterLink
                 key={index}
-                href={link.href}
-                className="block hover:underline focus:underline"
-                aria-label={`Navigate to ${link.title} page`}
-              >
-                {link.title}
-              </a>
+                url={link.href}
+                name={link.title}
+                external={false}
+                className="w-fit"
+              />
             ))}
           </div>
 
           <div className=" space-y-3 text-lg">
             {footerLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="flex items-center justify-between gap-1 font-medium hover:underline focus:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.aria}
-              >
-                {link.title}
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              <div className="flex items-center xl:justify-between">
+                <OuterLink
+                  key={index}
+                  url={link.href}
+                  name={link.title}
+                  external={false}
+                  className="w-fit"
+                />
+                <img
+                  src="/arrow.svg"
+                  alt="Arrow Icon"
+                  className="size-4  transition-transform duration-200 active:scale-125"
+                />
+              </div>
             ))}
           </div>
         </nav>

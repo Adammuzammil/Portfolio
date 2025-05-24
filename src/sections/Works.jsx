@@ -1,8 +1,9 @@
 import React from "react";
+import { Link, useParams } from "react-router";
 
 const projects = [
   {
-    name: "Yeet",
+    name: "Kaizen",
     image:
       "https://images.pexels.com/photos/19577082/pexels-photo-19577082/free-photo-of-city-skyline-at-dusk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
@@ -12,12 +13,12 @@ const projects = [
       "https://images.pexels.com/photos/30426849/pexels-photo-30426849/free-photo-of-urban-black-and-white-bicycle-scene.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    name: "Dashboard",
+    name: "Ink",
     image:
       "https://images.pexels.com/photos/30352028/pexels-photo-30352028/free-photo-of-detailed-close-up-of-a-torn-safety-net.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    name: "E-commerce",
+    name: "CineVista",
     image:
       "https://images.pexels.com/photos/30267851/pexels-photo-30267851/free-photo-of-minimalist-architectural-detail-in-sunlight.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
@@ -25,13 +26,17 @@ const projects = [
 
 const Works = () => {
   return (
-    <section className="py-24" data-section="work">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="works"
+      className="py-24 mt-12 md:mt-16 lg:mt-20"
+      data-section="work"
+    >
+      <div className="max-w-7xl mx-auto md:px-8">
         <h2 className="text-4xl md:text-7xl lg:text-8xl">Selected Works</h2>
         <div className="mt-10 md:mt-16 lg:mt-20">
           {projects.map(({ name, image }) => (
-            <a
-              href="#"
+            <Link
+              to={`/work`}
               key={name}
               className="border-t last:border-b border-stone-400 border-dotted py-6 md:py-8 lg:py-10 flex flex-col relative group/work"
             >
@@ -93,8 +98,17 @@ const Works = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
+        </div>
+
+        <div className="flex justify-center items-center mt-16">
+          <Link
+            to="/work"
+            className="relative px-8 py-4 border border-black rounded-full text-lg font-medium transition hover:bg-black hover:text-white"
+          >
+            More work
+          </Link>
         </div>
       </div>
     </section>

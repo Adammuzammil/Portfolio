@@ -1,23 +1,37 @@
+import OuterLink from "./OuterLink";
+
 const SocialLinks = () => {
   return (
     <>
       <div>
-        <div>
-          <span className="text-sm md:text-base">Socials</span>
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center sm:items-end">
+          <span className="text-sm md:text-base text-white">Socials</span>
         </div>
         <div className="inline-flex items-center gap-3 text-sm md:text-base">
-          <a href="#" className="hover:underline underline-offset-4">
+          {/* <a href="#" className="hover:underline underline-offset-4">
             Linkedin
-          </a>
-          <a href="#" className="hover:underline underline-offset-4">
-            Telegram
-          </a>
-          <a href="#" className="hover:underline underline-offset-4">
-            WhatsApp
-          </a>
-          <a href="#" className="hover:underline underline-offset-4">
-            Instagram
-          </a>
+          </a> */}
+          <OuterLink
+            url={"/"}
+            name={"Linkedin"}
+            external={false}
+            className=" w-fit "
+            isDark={true}
+          />
+          <OuterLink
+            url={"/"}
+            name={"Instagram"}
+            external={false}
+            className=" w-fit "
+            isDark={true}
+          />
+          <OuterLink
+            url={"/"}
+            name={"Twitter"}
+            external={false}
+            className=" w-fit "
+            isDark={true}
+          />
         </div>
       </div>
     </>

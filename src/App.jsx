@@ -20,6 +20,7 @@ import ThreeModel from "./components/ThreeModel";
 import { HeroSection } from "./sections/HeroSection";
 import Intro from "./sections/Intro";
 import CustomCursor from "./components/CustomCursor";
+import Experience from "./sections/Experience";
 
 const App = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -31,27 +32,28 @@ const App = () => {
   };
 
   return (
-    <main className="relative">
+    <main className="overflow-x-hidden">
       {isLoading && (
         <LoadingOverlay onLoadingComplete={handleLoadingComplete} />
       )}
-      {/* <Cursor isHovering={isHovering} setIsHovering={setIsHovering} /> */}
       <CustomCursor
         isHovering={isHovering}
         setIsHovering={setIsHovering}
         cursorText={cursorText}
       />
-      <Header />
-      <div className="h-[200vh] relative">
+
+      <div className="max-w-[1920px] mx-auto">
+        <Header />
         <HeroSection />
-      </div>
-      <section className="relative min-h-screen  -mt-[100vh]">
+
         <Intro />
         <About />
-      </section>
 
-      <Works />
-      <Footer />
+        <Experience />
+
+        <Works />
+        <Footer />
+      </div>
 
       <ScrollUp />
     </main>

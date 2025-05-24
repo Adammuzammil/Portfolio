@@ -1,6 +1,6 @@
 // components/HeroSection.tsx
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Suspense } from "react";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -72,18 +72,6 @@ const ParticleSystem = ({ mouse }) => {
       new Float32Array(random.inSphere(new Float32Array(2000), { radius: 1.5 }))
   );
 
-  //   useFrame((state, delta) => {
-  //     if (!ref.current) return;
-  //     ref.current.rotation.y += delta / 20;
-  //     ref.current.rotation.x += delta / 30;
-
-  //     // Mouse interaction
-  //     if (mouse[0] && mouse[1]) {
-  //       ref.current.position.x += (mouse[0] - ref.current.position.x) * 0.01;
-  //       ref.current.position.y += (-mouse[1] - ref.current.position.y) * 0.01;
-  //     }
-  //   });
-
   return (
     <>
       <Points ref={ref} positions={particles} stride={3} frustumCulled={false}>
@@ -101,11 +89,12 @@ const ParticleSystem = ({ mouse }) => {
 
 export const HeroSection = () => {
   const [mouse, setMouse] = useState([0, 0]);
+  const [isCanvasReady, setIsCanvasReady] = useState(false);
 
-  const { scrollYProgress } = useScroll();
+  // const { scrollYProgress } = useScroll();
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const getCurrentDayDateTime = () => {
     const now = new Date();
@@ -123,14 +112,14 @@ export const HeroSection = () => {
   const { day, date, time } = getCurrentDayDateTime();
 
   return (
-    <motion.section
-      className="sticky top-0 h-screen w-full bg-[#232126] flex items-center justify-center z-[-1]"
-      style={{ scale, opacity }}
-    >
+    <motion.section className="relative min-h-screen w-full bg-[#232126] flex items-center justify-center overflow-hidden ">
       {/* 3D Canvas */}
-      <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <ParticleSystem mouse={mouse} />
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <Canvas camera={{ position: [0, 0, 1] }} gl={{ alpha: false }}>
+          <Suspense fallback={null}>
+            <color attach="background" args={["#232126"]} />
+            <ParticleSystem mouse={mouse} />
+          </Suspense>
         </Canvas>
       </div>
 
@@ -145,20 +134,20 @@ export const HeroSection = () => {
           ]);
         }}
       >
-        <div className="w-full flex flex-col items-center justify-center px-12">
-          <h1 className="text-7xl md:text-[12vw] font-medium tracking-wide text-[#C4C5C9]">
+        <div className="w-full flex flex-col items-center justify-center px-6 sm:px-12">
+          <h1 className="text-5xl sm:text-6xl md:text-[8vw] font-medium tracking-wide text-[#C4C5C9] max-w-full">
             ADAM M
           </h1>
-          <h3 className="text-base md:text-[1.5vw] tracking-[0.5em] text-white/50 my-2">
+          <h3 className="text-sm sm:text-base md:text-[1.5vw] tracking-[0.3em] text-white/50 my-2">
             FULL-STACK DEVELOPER
           </h3>
-          <h1 className="text-7xl md:text-[12vw] font-medium tracking-wide  text-[#C4C5C9]">
+          <h1 className="text-5xl sm:text-6xl md:text-[8vw] font-medium tracking-wide text-[#C4C5C9] max-w-full">
             MUZAMMIL
           </h1>
         </div>
 
         <motion.div
-          className="absolute bottom-8 left-0 right-0 px-4 sm:px-8 lg:px-16 text-blue-100"
+          className="absolute bottom-8 sm:bottom-4 left-0 right-0 w-full px-4 sm:px-8 lg:px-16 text-blue-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -179,7 +168,6 @@ export const HeroSection = () => {
               </svg>
               <span className="font-medium text-white/55">Mangalore, IN</span>
             </div>
-
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="h-3 w-3 bg-green-500 rounded-full animate-ping absolute" />
@@ -189,7 +177,6 @@ export const HeroSection = () => {
                 Available for opportunities
               </span>
             </div>
-
             <div className="flex items-center gap-2 text-white/55">
               <span className="font-medium">{day}</span>
               <span className="text-gray-400">•</span>
@@ -199,10 +186,6 @@ export const HeroSection = () => {
             </div>
           </div>
         </motion.div>
-        {/* Scrolling Indicator */}
-        {/* <div className="absolute bottom-12 h-12 w-8 border-2 border-white rounded-2xl">
-          <div className="animate-bounce w-1 h-2 bg-white rounded-full mx-auto mt-2" />
-        </div> */}
       </div>
     </motion.section>
   );

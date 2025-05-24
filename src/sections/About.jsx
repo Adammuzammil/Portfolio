@@ -166,14 +166,8 @@ const handleOpenResume = () => {
 const About = () => {
   const constraintRef = useRef(null);
   return (
-    <section className="py-20 pb-28 bg-[#F1F0EA]">
+    <section className="py-24  bg-[#F1F0EA]">
       <div className="container px-4 md:px-6 lg:px-8 mx-auto max-w-7xl">
-        {/* <SectionHeader
-          eyebrow="About"
-          title="A Glimpse into my world"
-          desc="Know more about who I am, what I do and what inspires me"
-        /> */}
-
         {/* Bento Grid Section */}
         <div className="space-y-8">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-medium">
@@ -245,7 +239,7 @@ const About = () => {
                     </p>
                     <div className="flex items-center gap-2 mt-2">
                       <div className="h-px w-8 bg-gray-300"></div>
-                      <p className="text-sm text-gray-400">Daily Wisdom</p>
+                      <p className="text-sm text-gray-400">Muzammil</p>
                     </div>
                   </div>
 
