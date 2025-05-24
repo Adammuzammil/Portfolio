@@ -10,7 +10,7 @@ const Intro = () => {
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-8 mb-20">
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-black overflow-hidden">
             <img
-              src="assets/images/wink.png"
+              src="/assets/images/wink.png"
               alt="Profile"
               className="w-full h-full object-cover"
             />

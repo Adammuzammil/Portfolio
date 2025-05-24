@@ -4,23 +4,19 @@ import { Link, useParams } from "react-router";
 const projects = [
   {
     name: "Kaizen",
-    image:
-      "https://images.pexels.com/photos/19577082/pexels-photo-19577082/free-photo-of-city-skyline-at-dusk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "/assets/images/kz1.png",
   },
   {
     name: "Ripple",
-    image:
-      "https://images.pexels.com/photos/30426849/pexels-photo-30426849/free-photo-of-urban-black-and-white-bicycle-scene.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "/assets/images/ripple1.png",
   },
   {
     name: "Ink",
-    image:
-      "https://images.pexels.com/photos/30352028/pexels-photo-30352028/free-photo-of-detailed-close-up-of-a-torn-safety-net.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "/assets/images/ink1.png",
   },
   {
     name: "CineVista",
-    image:
-      "https://images.pexels.com/photos/30267851/pexels-photo-30267851/free-photo-of-minimalist-architectural-detail-in-sunlight.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "/assets/images/cv1.png",
   },
 ];
 

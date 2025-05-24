@@ -133,6 +133,7 @@ const projects = [
 
 const WorkInfo = () => {
   const [index, setIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   const project = projects[index];
 
   const handlePrev = () => {
@@ -412,7 +413,11 @@ const WorkInfo = () => {
                         key={`${project.images[0]}-${index}`}
                         src={item}
                         alt={project.name}
-                        className="w-full h-full object-contain rounded-lg"
+                        loading="lazy"
+                        onLoad={() => setLoaded(true)}
+                        className={`w-full rounded-lg transition-all duration-500 ${
+                          loaded ? "border-2 border-black" : "border-none"
+                        }`}
                         initial={{
                           opacity: 0,
                         }}
