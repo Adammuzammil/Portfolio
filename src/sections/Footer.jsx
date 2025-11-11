@@ -26,9 +26,9 @@ const footerLinks = [
 ];
 
 const navigationLinks = [
-  { title: "About", href: "/about" },
+  { title: "About", href: "#about" },
+  { title: "Experience", href: "#experience" },
   { title: "Work", href: "/work" },
-  { title: "Contact", href: "/contact" },
 ];
 
 const currentYear = new Date().getFullYear();

@@ -10,11 +10,12 @@ const OuterLink = ({
   isDark = false,
 }) => {
   const isExternal = external || url.startsWith("http");
+  const isAnchor = url.startsWith("#");
 
   const cleanName = name.includes("https://")
     ? name.replace("https://", "")
     : name;
-  const href = isExternal ? url : `/${url.replace(/^\//, "")}`;
+  const href = isExternal ? url : isAnchor ? url : `/${url.replace(/^\//, "")}`;
 
   return (
     <a
