@@ -5,22 +5,22 @@ import OuterLink from "../components/OuterLink";
 const footerLinks = [
   {
     title: "Github",
-    href: "https://github.com",
+    href: "https://github.com/Adammuzammil",
     aria: "Visit my GitHub profile",
   },
   {
     title: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/zammil_44/",
     aria: "Visit my Instagram profile",
   },
   {
     title: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/zammil24",
     aria: "Visit my LinkedIn profile",
   },
   {
     title: "Twitter",
-    href: "https://twitter.com",
+    href: "https://x.com/atom_byte",
     aria: "Visit my Twitter profile",
   },
 ];

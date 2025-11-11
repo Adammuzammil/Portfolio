@@ -12,22 +12,22 @@ const SocialLinks = () => {
             Linkedin
           </a> */}
           <OuterLink
-            url={"/"}
+            url={"https://www.linkedin.com/in/zammil24"}
             name={"Linkedin"}
             external={false}
             className=" w-fit "
             isDark={true}
           />
           <OuterLink
-            url={"/"}
-            name={"Instagram"}
+            url={"https://x.com/atom_byte"}
+            name={"Twitter"}
             external={false}
             className=" w-fit "
             isDark={true}
           />
           <OuterLink
-            url={"/"}
-            name={"Twitter"}
+            url={"https://github.com/Adammuzammil"}
+            name={"Github"}
             external={false}
             className=" w-fit "
             isDark={true}

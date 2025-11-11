@@ -4,20 +4,23 @@ const OuterLink = ({
   name,
   url,
   ariaLabel,
-  external = true,
+  external = false,
   className,
   isPresent = false,
   isDark = false,
 }) => {
+  const isExternal = external || url.startsWith("http");
+
   const cleanName = name.includes("https://")
     ? name.replace("https://", "")
     : name;
-  const cleanUrl = url.includes("https://") ? url.replace("https://", "") : url;
+  const href = isExternal ? url : `/${url.replace(/^\//, "")}`;
 
   return (
-    <Link
-      to={`/${cleanUrl}`}
-      target="_blank"
+    <a
+      href={href}
+      target={isExternal ? "_blank" : "_self"}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className={`relative flex items-center ${
         isDark ? "text-white" : "text-black"
       }  transition duration-200 group ${className}`}
@@ -41,7 +44,7 @@ const OuterLink = ({
           isDark ? "bg-white" : "bg-black"
         } transition-all duration-700 ease-in-out group-hover:w-full`}
       ></span>
-    </Link>
+    </a>
   );
 };
 
