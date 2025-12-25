@@ -10,6 +10,7 @@ import { projects } from "../constants";
 const WorkInfo = () => {
   const [index, setIndex] = useState(0);
   const project = projects[index];
+  const isDark = false;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -197,10 +198,37 @@ const WorkInfo = () => {
                   variants={textVariants}
                 >
                   {project.url && (
-                    <OuterLink
-                      url={`/${project.url}`}
-                      name={project.dummyurl}
-                    />
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      className={`relative flex items-center ${
+                        isDark ? "text-white" : "text-black"
+                      }  transition duration-200 group `}
+                      aria-label="live site"
+                    >
+                      {project.dummyurl}
+
+                      <img
+                        src="/arrow.svg"
+                        alt="Arrow Icon"
+                        className="size-4"
+                      />
+                      {/* Persistent light gray underline */}
+                      {project.url && (
+                        <span
+                          className={`absolute left-0 bottom-[-3px] w-full h-[1px] ${
+                            isDark ? "bg-gray-500" : "bg-gray-300"
+                          }`}
+                        ></span>
+                      )}
+
+                      {/* Dark underline that expands on hover */}
+                      <span
+                        className={`absolute left-0 bottom-[-3px] w-0 h-[1px] ${
+                          isDark ? "bg-white" : "bg-black"
+                        } transition-all duration-700 ease-in-out group-hover:w-full`}
+                      ></span>
+                    </a>
                   )}
 
                   <a

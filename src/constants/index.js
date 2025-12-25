@@ -40,7 +40,7 @@ export const projects = [
     industry: "Blockchain",
     published: "2024",
     techstack: ["React", "Tailwind CSS", "ShadCN UI", "Firebase"],
-    dummyurl: "KAIZEN.COM",
+    dummyurl: "kaizen.com",
     url: "https://kaizen-three-iota.vercel.app",
     github: "https://github.com/Adammuzammil/crypto-dashboard",
     inspiration:
@@ -81,7 +81,7 @@ export const projects = [
     published: "2024",
     techstack: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
     url: "https://ink-sandy.vercel.app/",
-    dummyurl: "INK.COM",
+    dummyurl: "ink.com",
     github: "https://github.com/Adammuzammil/Ink",
     inspiration:
       "The project stemmed from my passion for UI design. My goal was simple—craft a stunning interface that captivates users while showcasing my frontend skills. It is deployed on Vercel",
@@ -101,7 +101,7 @@ export const projects = [
     published: "2024",
     techstack: ["React", "Tailwind CSS"],
     url: "https://cine-vista-two.vercel.app/",
-    dummyurl: "CINEVISTA.COM",
+    dummyurl: "cinevista.com",
     github: "https://github.com/Adammuzammil/CineVista",
     inspiration:
       "This project began as a way to hone my frontend skills and explore UI development. It helped me gain valuable insights into design, interactivity, and performance optimization. The project is deployed on Vercel.",
@@ -120,7 +120,7 @@ export const projects = [
     published: "2024",
     techstack: ["React", "Tailwind CSS", "Typescript", "ShadCN UI"],
     url: "https://tenki-inky.vercel.app",
-    dummyurl: "HORIZON.COM",
+    dummyurl: "horizon.com",
     github: "https://github.com/Adammuzammil/weather_app",
     inspiration:
       "Exploring Next JS for the first time, I built a weather app with real-time forecasts via OpenWeatherMap and interactive maps using MapBox. This project enhanced my frontend skills in handling dynamic data. Deployed on Vercel.",
@@ -140,7 +140,7 @@ export const projects = [
     published: "2024",
     techstack: ["React", "Tailwind CSS", "Express", "PostgreSQL", "NodeJS"],
     url: "https://shelf-xrly.onrender.com",
-    dummyurl: "SHOPPY.COM",
+    dummyurl: "shoppy.com",
     github: "https://github.com/Adammuzammil/product-store",
     inspiration:
       "I built Shoppy as a learning project when I decided to explore PostgreSQL. The goal was to create a simple platform for users to store and manage their wishlist items .Deployed it on Render.",
